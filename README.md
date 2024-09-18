@@ -2,7 +2,7 @@
 
 ### Setup
 1. git clone https://github.com/memari-majid/easy-local-rag.git
-2. cd dir
+2. cd easy-local-rag
 3. pip install -r requirements.txt
 4. Install Ollama (https://ollama.com/download)
 5. ollama pull llama3 (etc)
