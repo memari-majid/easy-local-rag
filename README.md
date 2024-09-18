@@ -31,9 +31,6 @@
 - Pick your model from the CLI (1.1)
   - python localrag.py --model mistral (llama3 is default) 
 - Talk in a true loop with conversation history (1.1)
-   
-### My YouTube Channel
-https://www.youtube.com/c/AllAboutAI
 
 ### What is RAG?
 RAG is a way to enhance the capabilities of LLMs by combining their powerful language understanding with targeted retrieval of relevant information from external sources often with using embeddings in vector databases, leading to more accurate, trustworthy, and versatile AI-powered applications
