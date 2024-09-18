@@ -74,6 +74,13 @@ llama models, especially llama 3, are advanced large language models developed b
   
 - **llama 3 - 70B**: The largest model with 70 billion parameters. Delivers the highest accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware resources.
 
+Use the following commands to pull the necessary models:
+
+```bash
+# Pull Llama 3 - 7B
+ollama pull llama3:7b
+```
+
 #### Generating High-Quality Embeddings from Documents
 
 The `mxbai-embed-large` model is designed to generate high-quality embeddings from textual documents. Embeddings are vector representations of text that capture the **semantic** meaning of words or sentences. These embeddings are essential for tasks like similarity search, document clustering, and retrieval-augmented generation (RAG) systems.
@@ -81,14 +88,6 @@ The `mxbai-embed-large` model is designed to generate high-quality embeddings fr
 By leveraging a large embedding model like `mxbai-embed-large`, you can ensure that your documents are encoded into dense vectors that preserve their **semantic** richness and **contextual** information, which improves the performance of downstream tasks such as search, recommendation, or summarization.
 
 To pull the `mxbai-embed-large` model using **ollama**, use the following command:
-Use the following commands to pull the necessary models:
-
-llama3 for general-purpose language generation:
-
-```bash
-# Pull Llama 3 - 7B
-ollama pull llama3:7b
-```
 
 mxbai-embed-large for generating high-quality embeddings from documents:
 
