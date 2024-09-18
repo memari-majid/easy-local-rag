@@ -1,9 +1,13 @@
-import torch
 import ollama
-import os
-from openai import OpenAI
 import argparse
 import json
+import numpy as np
+from openai import OpenAI
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+import faiss  # Import FAISS for efficient similarity search
 
 # ANSI escape codes for colors
 PINK = '\033[95m'
@@ -17,20 +21,59 @@ def open_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as infile:
         return infile.read()
 
-# Function to get relevant context from the vault based on user input
-def get_relevant_context(rewritten_input, vault_embeddings, vault_content, top_k=3):
-    if vault_embeddings.nelement() == 0:  # Check if the tensor has any elements
-        return []
+# Function to generate embeddings for the vault content using Ollama
+def generate_embeddings(vault_content):
+    vault_embeddings = []
+    for content in vault_content:
+        response = ollama.embeddings(model='mxbai-embed-large', prompt=content)
+        vault_embeddings.append(response["embedding"])
+    return np.array(vault_embeddings)
+
+# Store embeddings in FAISS index
+def index_embeddings(embeddings):
+    dimension = embeddings.shape[1]  # Dimension of the embedding
+    index = faiss.IndexFlatL2(dimension)  # L2 distance (equivalent to cosine for normalized vectors)
+    index.add(embeddings)  # Add the embeddings to the FAISS index
+    return index
+
+# Function to save FAISS index
+def save_faiss_index(index, file_path="faiss_index.bin"):
+    faiss.write_index(index, file_path)
+
+# Function to load FAISS index
+def load_faiss_index(file_path="faiss_index.bin"):
+    if os.path.exists(file_path):
+        return faiss.read_index(file_path)
+    else:
+        return None
+
+# Function to save embeddings
+def save_embeddings(embeddings, file_path="vault_embeddings.npy"):
+    np.save(file_path, embeddings)
+
+# Function to load embeddings
+def load_embeddings(file_path="vault_embeddings.npy"):
+    if os.path.exists(file_path):
+        return np.load(file_path)
+    else:
+        return None
+
+# Function to perform the search in the FAISS index
+def search_index(index, query_embedding, top_k=3):
+    query_embedding = np.array(query_embedding).reshape(1, -1)  # Reshape query embedding
+    distances, indices = index.search(query_embedding, top_k)  # Perform FAISS search
+    return distances, indices
+
+# Function to get relevant context from the vault based on user input using FAISS
+def get_relevant_context_faiss(rewritten_input, index, vault_embeddings, vault_content, top_k=3):
     # Encode the rewritten input
     input_embedding = ollama.embeddings(model='mxbai-embed-large', prompt=rewritten_input)["embedding"]
-    # Compute cosine similarity between the input and vault embeddings
-    cos_scores = torch.cosine_similarity(torch.tensor(input_embedding).unsqueeze(0), vault_embeddings)
-    # Adjust top_k if it's greater than the number of available scores
-    top_k = min(top_k, len(cos_scores))
-    # Sort the scores and get the top-k indices
-    top_indices = torch.topk(cos_scores, k=top_k)[1].tolist()
-    # Get the corresponding context from the vault
-    relevant_context = [vault_content[idx].strip() for idx in top_indices]
+    
+    # Perform search in the FAISS index
+    distances, top_indices = search_index(index, np.array(input_embedding), top_k)
+    
+    # Retrieve relevant context based on top-k results
+    relevant_context = [vault_content[idx] for idx in top_indices[0]]
     return relevant_context
 
 def rewrite_query(user_input_json, conversation_history, ollama_model):
@@ -62,8 +105,8 @@ def rewrite_query(user_input_json, conversation_history, ollama_model):
     )
     rewritten_query = response.choices[0].message.content.strip()
     return json.dumps({"Rewritten Query": rewritten_query})
-   
-def ollama_chat(user_input, system_message, vault_embeddings, vault_content, ollama_model, conversation_history):
+
+def ollama_chat(user_input, system_message, faiss_index, vault_embeddings, vault_content, ollama_model, conversation_history):
     conversation_history.append({"role": "user", "content": user_input})
     
     if len(conversation_history) > 1:
@@ -79,7 +122,7 @@ def ollama_chat(user_input, system_message, vault_embeddings, vault_content, oll
     else:
         rewritten_query = user_input
     
-    relevant_context = get_relevant_context(rewritten_query, vault_embeddings, vault_content)
+    relevant_context = get_relevant_context_faiss(rewritten_query, faiss_index, vault_embeddings, vault_content)
     if relevant_context:
         context_str = "\n".join(relevant_context)
         print("Context Pulled from Documents: \n\n" + CYAN + context_str + RESET_COLOR)
@@ -127,28 +170,36 @@ if os.path.exists("vault.txt"):
     with open("vault.txt", "r", encoding='utf-8') as vault_file:
         vault_content = vault_file.readlines()
 
-# Generate embeddings for the vault content using Ollama
-print(NEON_GREEN + "Generating embeddings for the vault content..." + RESET_COLOR)
-vault_embeddings = []
-for content in vault_content:
-    response = ollama.embeddings(model='mxbai-embed-large', prompt=content)
-    vault_embeddings.append(response["embedding"])
+# Try to load saved FAISS index and embeddings
+print(NEON_GREEN + "Attempting to load saved FAISS index and embeddings..." + RESET_COLOR)
+faiss_index = load_faiss_index("faiss_index.bin")
+vault_embeddings = load_embeddings("vault_embeddings.npy")
 
-# Convert to tensor and print embeddings
-print("Converting embeddings to tensor...")
-vault_embeddings_tensor = torch.tensor(vault_embeddings) 
-print("Embeddings for each line in the vault:")
-print(vault_embeddings_tensor)
+# If index or embeddings do not exist, generate them
+if faiss_index is None or vault_embeddings is None:
+    print(NEON_GREEN + "Generating embeddings for the vault content..." + RESET_COLOR)
+    vault_embeddings = generate_embeddings(vault_content)
+
+    # Index the embeddings using FAISS
+    print(NEON_GREEN + "Indexing embeddings using FAISS..." + RESET_COLOR)
+    faiss_index = index_embeddings(vault_embeddings)
+
+    # Save the FAISS index and embeddings for future use
+    print(NEON_GREEN + "Saving FAISS index and embeddings..." + RESET_COLOR)
+    save_faiss_index(faiss_index, "faiss_index.bin")
+    save_embeddings(vault_embeddings, "vault_embeddings.npy")
+else:
+    print(NEON_GREEN + "Loaded FAISS index and embeddings from disk." + RESET_COLOR)
 
 # Conversation loop
 print("Starting conversation loop...")
 conversation_history = []
-system_message = "You are a helpful assistant that is an expert at extracting the most useful information from a given text. Also bring in extra relevant infromation to the user query from outside the given context."
+system_message = "You are a helpful assistant that is an expert at extracting the most useful information from a given text. Also bring in extra relevant information to the user query from outside the given context."
 
 while True:
     user_input = input(YELLOW + "Ask a query about your documents (or type 'quit' to exit): " + RESET_COLOR)
     if user_input.lower() == 'quit':
         break
     
-    response = ollama_chat(user_input, system_message, vault_embeddings_tensor, vault_content, args.model, conversation_history)
+    response = ollama_chat(user_input, system_message, faiss_index, vault_embeddings, vault_content, args.model, conversation_history)
     print(NEON_GREEN + "Response: \n\n" + response + RESET_COLOR)

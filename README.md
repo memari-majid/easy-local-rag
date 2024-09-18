@@ -62,7 +62,41 @@ Go to the repository downloaded in your local machine:
 ```bash
 cd local_rag
 ```
-### Step 2: Install Python Dependencies
+
+### Step 2: Install Package Manager
+To manage Python environments more effectively, we recommend using **Miniconda**. Follow these steps to install Miniconda:
+
+1. **Download Miniconda**: Go to the [Miniconda Installation page](https://docs.conda.io/en/latest/miniconda.html) and download the installer suitable for your operating system (Windows, macOS, Linux).
+
+2. **Run the Installer**:
+   - On **Windows**, open the installer and follow the installation instructions.
+   - On **macOS** and **Linux**, run the following commands in your terminal (replace the installer name with the appropriate one for your OS):
+
+   For Linux
+   ```bash
+   
+   bash Miniconda3-latest-Linux-x86_64.sh
+   ```
+
+   For macOS
+   ```bash
+   bash Miniconda3-latest-MacOSX-x86_64.sh
+   ```
+   Follow the Prompts: During the installation process, follow the prompts to install Miniconda and allow the installer to initialize the conda environment.
+
+3. **Create a New Conda Environment with Python 3.9**
+Once Miniconda is installed, create a new environment with Python 3.9 using the following commands:
+
+Create a new conda environment with Python 3.9
+```bash
+conda create --name rag python=3.9
+```
+Activate the environment
+```bash
+conda activate rag
+```
+
+### Step 3: Install Python Dependencies
 Install the required Python packages by running the following command:
 
 ```bash
@@ -70,14 +104,14 @@ pip install -r requirements.txt
 ```
 These dependencies include tools for managing language models, handling documents, and generating embeddings.
 
-### Step 3: Install Ollama
+### Step 4: Install Ollama
 Ollama is the core platform for running the local language models. Download and install it from the official website:
 
 [Download Ollama](https://ollama.com/)
 
 Once installed, Ollama will allow access to a variety of optimized language models for local use.
 
-### Step 4: Pull the Required Models
+### Step 5: Pull the Required Models
 You will need to download the specific models that power the RAG system. 
 #### Models and Memory Requirements
 
@@ -110,7 +144,6 @@ When selecting a llama model, it is important to consider the available memory a
 Use the following commands to pull the necessary models:
 
 ```bash
-# Pull llama 3 - 7B
 ollama pull llama3:7b
 ```
 
@@ -131,7 +164,7 @@ ollama pull mxbai-embed-large
 These models will be stored locally, allowing the entire system to run offline.
 
 
-### Step 5: Upload Your Documents
+### Step 6: Upload Your Documents
 
 The `upload.py` script allows users to upload documents in **PDF**, **TXT**, and **JSON** formats and append their contents to a file called `vault.txt`. This tool is designed to handle documents by converting them into chunks of text, making them ready for further processing.
 
@@ -167,7 +200,7 @@ If you want to extend the functionality of upload.py to support additional file 
 
 This script makes it easy to gather documents from various formats into a central text file, ready for processing or analysis.
 
-### Step 6: Query Your Documents
+### Step 7: Query Your Documents
 
 The `localrag.py` script provides a local environment for running Retrieval-Augmented Generation (RAG) using a vault of documents. This script allows you to query a set of local documents and retrieve relevant context for answering questions. It integrates with **Ollama** to generate embeddings and retrieve context based on user input. Additionally, it utilizes **PyTorch** to handle similarity calculations and embeddings.
 
@@ -272,7 +305,7 @@ Ensure that your vault.txt is properly formatted, with each document or chunk of
 
 This script provides a simple, yet powerful tool for querying local documents and generating responses using RAG techniques without modifying the user's original input.
 
-# Step 7: Test Description for Querying Complex Patient Records with RAG
+# Step 8: Test Description for Querying Complex Patient Records with RAG
 
 This test demonstrates how the local Retrieval-Augmented Generation (RAG) system retrieves nuanced information from a complex JSON file of patient records. In this case, the query involves retrieving the treatments for Michael Lee's anxiety and understanding how his anxiety might be related to his hypertension.
 
