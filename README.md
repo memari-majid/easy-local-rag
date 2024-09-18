@@ -38,13 +38,13 @@ The following steps will help you set up the Local RAG system on your laptop. Th
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/memari-majid/easy-local-rag.git
+git clone https://github.com/memari-majid/local_rag.git
 ```
 
 Go to the repository downloaded in your local machine:
 
 ```bash
-cd easy-local-rag
+cd local_rag
 ```
 ### Step 2: Install Python Dependencies
 Install the required Python packages by running the following command:
