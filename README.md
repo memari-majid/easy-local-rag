@@ -260,3 +260,49 @@ Ensure that your vault.txt is properly formatted, with each document or chunk of
 
 This script provides a simple, yet powerful tool for querying local documents and generating responses using RAG techniques without modifying the user's original input.
 
+## Test
+
+To test the **local Retrieval-Augmented Generation (RAG)** system using the provided `sample.json` file of patient records, follow the steps below:
+
+#### 1. Load the Sample Data
+
+Run the Python script `upload.py`, which will open a graphical user interface (GUI). Through this interface, you can select `Upload JSON File` and upload the `sample.json` file. 
+
+If your system is set up to read from text files, you may need to modify it to correctly parse JSON format.
+
+Example command to run the script and upload the `sample.json` file:
+
+```bash
+python upload.py
+```
+#### 2. Run the RAG System
+
+Execute the RAG system as usual. Depending on your setup, the system will read the sample.json file, generate embeddings for the records, and allow you to run semantic queries against the data.
+
+```bash
+python localrag.py
+```
+
+#### 3. Query
+
+Once the system is running, you can input queries related to the patient data in the sample.json file. Here are some example queries:
+
+"What is the medical history of John Doe?"
+"What was the outcome of Emily Davis' visit for fatigue?"
+"Summarize the recent visits of Jane Smith."
+The RAG system will search through the sample.json file, retrieve relevant records, and generate a response based on the semantic meaning of the query.
+
+#### 4. Expected Output
+For a query like "What is the medical history of John Doe?", the system should retrieve and summarize the relevant medical history from the sample.json file, including his conditions (hypertension, type 2 diabetes) and treatments.
+
+The output should look something like this:
+
+
+John Doe's medical history includes:
+- Hypertension: diagnosed on 2020-05-10, treated with Lisinopril 10mg daily.
+- Type 2 Diabetes: diagnosed on 2018-11-15, treated with Metformin 500mg twice daily.
+1. Adjust the RAG System for Other Formats
+If the system is configured for text files, ensure that it properly parses and handles JSON input. The structure of the sample.json file includes multiple patients with details such as their medical history, recent visits, and treatments, which the RAG system should be able to search and retrieve based on your queries.
+
+By following these steps, you'll be able to test the RAG system with the sample.json file and experience how it semantically searches through patient data to generate meaningful responses.
+
