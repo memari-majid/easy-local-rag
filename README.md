@@ -100,8 +100,6 @@ These models will be stored locally, allowing the entire system to run offline.
 
 ### Step 5: Upload Your Documents
 
-#### Uploading Files with `upload.py`
-
 The `upload.py` script allows users to upload documents in **PDF**, **TXT**, and **JSON** formats and append their contents to a file called `vault.txt`. This tool is designed to handle documents by converting them into chunks of text, making them ready for further processing.
 
 #### Key Features of `upload.py`:
@@ -137,8 +135,6 @@ If you want to extend the functionality of upload.py to support additional file 
 This script makes it easy to gather documents from various formats into a central text file, ready for processing or analysis.
 
 ### Step 6: Query Your Documents
-
-### Using `localrag.py` for Retrieval-Augmented Generation (RAG)
 
 The `localrag.py` script provides a local environment for running Retrieval-Augmented Generation (RAG) using a vault of documents. This script allows you to query a set of local documents and retrieve relevant context for answering questions. It integrates with **Ollama** to generate embeddings and retrieve context based on user input. Additionally, it utilizes **PyTorch** to handle similarity calculations and embeddings.
 
