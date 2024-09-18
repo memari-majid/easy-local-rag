@@ -1,4 +1,8 @@
 # Retrieval-Augmented Generation (RAG) for Local Data Processing
+<div style="text-align: center;">
+    <img src="pipeline.png" alt="RAG Pipeline" title="RAG Pipelin" width="1000">
+</div>
+
 ### Project Overview
 
 This repository focuses on creating a **local Retrieval-Augmented Generation (RAG)** system designed to understand your queries through a **Large Language Model (LLM)**, search your local database, and semantically retrieve relevant information. By integrating the **Ollama** platform, this project enables an advanced AI system similar to **ChatGPT**, but it operates entirely on your **local machine** without requiring an **internet** connection.
@@ -8,10 +12,6 @@ The local RAG system leverages the LLM's ability to **comprehend** the nuances o
 For example, in a **regular database query**, asking for "customer complaints about delivery delays" might only return entries explicitly tagged with "delivery delay." In contrast, a **RAG-based system** can understand **synonyms**, **variations**, or **implicit** mentions of the issue, such as "shipment took too long" or "late delivery." This makes it significantly more powerful when searching through unstructured or loosely structured data like **customer reviews**, **patient records**, or **emails**.
 
 By performing all tasks **locally**, the system guarantees **data privacy** and ensures compliance with **confidentiality** regulations, making it ideal for handling **sensitive information** such as **patient records** or **proprietary customer feedback**. Additionally, the combination of retrieval and generation offers robust **data analysis**, **report generation**, and **decision support** capabilities.
-
-<div style="text-align: center;">
-    <img src="pipeline.png" alt="RAG Pipeline" title="RAG Pipelin" width="1000">
-</div>
 
 Integrating a **RAG system** into your database infrastructure can dramatically enhance the ability to extract actionable insights from large datasets. Instead of relying on rigid, predefined query patterns, a RAG system empowers users to engage with their data in a more **intuitive** and **context-aware** manner. This enables more **flexible exploration** of data, more accurate **information retrieval**, and the ability to generate **coherent explanations** for complex queries—all while maintaining full **control** over data workflows and privacy.
 
