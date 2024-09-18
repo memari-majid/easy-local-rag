@@ -170,7 +170,7 @@ The following table outlines various **Large Language Models (LLMs)** with their
 | GPT-4o mini         | OpenAI       | 128k           | 71              |
 | Llama 3.1 405B      | Meta         | 128k           | 72              |
 | Llama 3.1 70B       | Meta         | 128k           | 65              |
-| Llama 3.1 8B        | Meta         | 128k           | 53              |
+| **Llama 3.1 8B**    | Meta         | 128k           | 53              |
 | Gemini 1.5 Pro      | Google       | 2m             | 72              |
 | Gemini 1.5 Flash    | Google       | 1m             | 60              |
 | Gemma 2 27B         | Google       | 8k             | 49              |
