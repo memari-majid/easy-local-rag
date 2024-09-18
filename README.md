@@ -60,12 +60,25 @@ Ollama is the core platform for running the local language models. Download and 
 Once installed, Ollama will allow access to a variety of optimized language models for local use.
 
 ### Step 4: Pull the Required Models
-You will need to download the specific models that power the RAG system. Use the following commands to pull the necessary models:
+You will need to download the specific models that power the RAG system. 
+#### Llama 3 Model Sizes
+
+- **Llama 3 - 7B**: A smaller, more efficient model with 7 billion parameters. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
+  
+- **Llama 3 - 13B**: A mid-size model with 13 billion parameters. Offers a balance between performance and efficiency, suitable for more complex tasks without the need for high-end hardware.
+  
+- **Llama 3 - 34B**: A larger model with 34 billion parameters. Provides higher accuracy and performance on advanced tasks but requires more computational resources.
+  
+- **Llama 3 - 70B**: The largest model with 70 billion parameters. Delivers the highest accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware resources.
+
+
+Use the following commands to pull the necessary models:
 
 Llama3 for general-purpose language generation:
 
 ```bash
-ollama pull llama3
+# Pull Llama 3 - 7B
+ollama pull llama3:7b
 ```
 
 mxbai-embed-large for generating high-quality embeddings from documents:
