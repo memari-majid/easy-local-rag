@@ -63,24 +63,24 @@ Once installed, Ollama will allow access to a variety of optimized language mode
 
 ### Step 4: Pull the Required Models
 You will need to download the specific models that power the RAG system. 
-#### Llama Models and Memory Requirements
+#### llama Models and Memory Requirements
 
-Llama models, especially **Llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **Llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like Llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
+llama models, especially **llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
 
-- **Llama 3 - 7B**: The **smallest** model with 7 billion parameters. It is **efficient** and requires around **16 GB** of GPU memory to run smoothly. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
+- **llama 3 - 7B**: The **smallest** model with 7 billion parameters. It is **efficient** and requires around **16 GB** of GPU memory to run smoothly. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
 
-- **Llama 3 - 13B**: A **mid-size** model with 13 billion parameters. It strikes a **balance** between performance and efficiency and requires approximately **24 GB** of GPU memory, making it suitable for more complex tasks without the need for high-end hardware.
+- **llama 3 - 13B**: A **mid-size** model with 13 billion parameters. It strikes a **balance** between performance and efficiency and requires approximately **24 GB** of GPU memory, making it suitable for more complex tasks without the need for high-end hardware.
 
-- **Llama 3 - 34B**: A **larger** model with 34 billion parameters. It delivers higher **accuracy** and performance but requires more computational resources, typically needing around **48 GB** of GPU memory to operate effectively.
+- **llama 3 - 34B**: A **larger** model with 34 billion parameters. It delivers higher **accuracy** and performance but requires more computational resources, typically needing around **48 GB** of GPU memory to operate effectively.
 
-- **Llama 3 - 70B**: The **largest** model with 70 billion parameters. It provides the **highest** accuracy and performance but requires significant hardware **resources**, including **80 GB** or more of GPU memory, making it ideal for the most demanding language generation tasks.
+- **llama 3 - 70B**: The **largest** model with 70 billion parameters. It provides the **highest** accuracy and performance but requires significant hardware **resources**, including **80 GB** or more of GPU memory, making it ideal for the most demanding language generation tasks.
 
-When selecting a Llama model, it is important to consider the available memory and hardware capabilities, as larger models require more memory but deliver better performance for complex tasks.
+When selecting a llama model, it is important to consider the available memory and hardware capabilities, as larger models require more memory but deliver better performance for complex tasks.
 
 Use the following commands to pull the necessary models:
 
 ```bash
-# Pull Llama 3 - 7B
+# Pull llama 3 - 7B
 ollama pull llama3:7b
 ```
 
