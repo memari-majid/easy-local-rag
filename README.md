@@ -109,6 +109,28 @@ Ollama is the core platform for running the local language models. Download and 
 
 [Download Ollama](https://ollama.com/)
 
+
+#### Linux Manual install
+
+Download and extract the package:
+
+```shell
+curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+sudo tar -C /usr -xzf ollama-linux-amd64.tgz
+```
+
+Start Ollama:
+
+```shell
+ollama serve
+```
+
+In another terminal, verify that Ollama is running:
+
+```shell
+ollama -v
+```
+
 Once installed, Ollama will allow access to a variety of optimized language models for local use.
 
 ### Step 5: Pull the Required Models
