@@ -65,7 +65,7 @@ Once installed, Ollama will allow access to a variety of optimized language mode
 You will need to download the specific models that power the RAG system. 
 #### Llama Models and Memory Requirements
 
-Llama models, especially **Llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **Llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters.
+Llama models, especially **Llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **Llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like Llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
 
 - **Llama 3 - 7B**: The **smallest** model with 7 billion parameters. It is **efficient** and requires around **16 GB** of GPU memory to run smoothly. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
 
