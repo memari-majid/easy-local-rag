@@ -7,3 +7,4 @@ pyyaml
 beautifulsoup4
 lxml
 python-dotenv
+faiss-cpu

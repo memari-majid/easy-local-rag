@@ -23,10 +23,20 @@ RAG is particularly effective when:
 - The data being queried is large, but only certain relevant sections are needed.
 - The queries should be answered using specific or recent data from local files.
 
-### 2. Vector Database
-A **vector database** is a specialized database designed to store and retrieve high-dimensional vectors, also known as embeddings. In this RAG setup, documents are converted into embeddings (vector representations) and stored in the vector database. When a query is made, it is also converted into a vector, and the vector database quickly retrieves the closest matching document embeddings based on semantic similarity.
+### 2. Vector Database (Using FAISS)
+A **vector database** is used to store and retrieve high-dimensional vectors, or **embeddings**, that represent the **semantic** meaning of documents. In this project, we use **FAISS (Facebook AI Similarity Search)**, which allows us to store document embeddings and retrieve the most semantically similar documents based on the **query** embedding.
 
-Vector databases are essential for scaling retrieval tasks, as they allow efficient search across large datasets by finding the most relevant vectors in a multi-dimensional space. Here, Ollama leverages **embeddings** to represent document meaning and stores them in an internal vector database for efficient retrieval.
+After you upload documents (PDF, text, or JSON), the system converts these documents into embeddings using the **Ollama mxbai-embed-large** model. These **embeddings** are then indexed using **FAISS**, allowing for efficient **semantic search** based on the meaning of the user's query.
+
+When a user asks a question, the system converts the query into an embedding and searches for the most similar document embeddings using FAISS. This allows the system to retrieve relevant information, even if the words in the query do not match the exact words in the documents, as the search is based on meaning rather than keywords.
+
+#### Persistent Storage of Embeddings and FAISS Index
+To improve efficiency, the embeddings generated from the uploaded documents and the FAISS index are **saved to disk**. This means that if you re-run the program later, the embeddings and index will be **loaded** instead of re-generated, saving time.
+
+- **FAISS Index**: Saved as `faiss_index.bin`.
+- **Embeddings**: Saved as `vault_embeddings.npy`.
+
+If new documents are uploaded, the system will regenerate the embeddings and re-index the entire set of documents.
 
 ### 3. Embeddings
 Embeddings are vector representations of text that capture the semantic meaning of words or documents. The system uses Ollama's `mxbai-embed-large` model to create high-quality embeddings for the local documents. These embeddings are stored in a vector database, enabling fast and accurate retrieval based on user queries.
