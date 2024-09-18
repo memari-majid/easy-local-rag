@@ -105,12 +105,29 @@ pip install -r requirements.txt
 These dependencies include tools for managing language models, handling documents, and generating embeddings.
 
 ### Step 4: Install Ollama
+
+
 Ollama is the core platform for running the local language models. Download and install it from the official website:
 
 [Download Ollama](https://ollama.com/)
 
+#### macOS
 
-#### Linux Manual install
+[Download](https://ollama.com/download/Ollama-darwin.zip)
+
+#### Windows
+
+[Download](https://ollama.com/download/OllamaSetup.exe)
+
+#### Linux Install
+
+To install Ollama, run the following command:
+
+```shell
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+##### Linux Manual install
 
 Download and extract the package:
 
@@ -125,11 +142,10 @@ Start Ollama:
 ollama serve
 ```
 
-In another terminal, verify that Ollama is running:
+#### Docker
 
-```shell
-ollama -v
-```
+The official [Ollama Docker image](https://hub.docker.com/r/ollama/ollama) `ollama/ollama` is available on Docker Hub.
+
 
 Once installed, Ollama will allow access to a variety of optimized language models for local use.
 
