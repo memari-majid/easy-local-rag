@@ -9,15 +9,14 @@ For example, in a **regular database query**, asking for "customer complaints ab
 
 By performing all tasks **locally**, the system guarantees **data privacy** and ensures compliance with **confidentiality** regulations, making it ideal for handling **sensitive information** such as **patient records** or **proprietary customer feedback**. Additionally, the combination of retrieval and generation offers robust **data analysis**, **report generation**, and **decision support** capabilities.
 
+<div style="text-align: center;">
+    <img src="pipeline.png" alt="RAG Pipeline" title="RAG Pipelin" width="1000">
+</div>
+
 Integrating a **RAG system** into your database infrastructure can dramatically enhance the ability to extract actionable insights from large datasets. Instead of relying on rigid, predefined query patterns, a RAG system empowers users to engage with their data in a more **intuitive** and **context-aware** manner. This enables more **flexible exploration** of data, more accurate **information retrieval**, and the ability to generate **coherent explanations** for complex queries—all while maintaining full **control** over data workflows and privacy.
 
 This project not only provides a powerful tool for managing and interpreting your own data but also serves as a learning resource for building customized RAG systems. Users can explore how the system semantically searches their databases and generates context-aware responses, enhancing the capability of traditional database management.
 
-
-
-<div style="text-align: center;">
-    <img src="pipeline.png" alt="RAG Pipeline" title="RAG Pipelin" width="1000">
-</div>
 
 ## Key Concepts
 
