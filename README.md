@@ -1,39 +1,96 @@
-# Local RAG with Ollama
+# Local Retrieval-Augmented Generation (RAG) with Ollama
 
-### Setup
-1. git clone https://github.com/memari-majid/easy-local-rag.git
-2. cd easy-local-rag
-3. pip install -r requirements.txt
-4. Install Ollama (https://ollama.com/download)
-5. ollama pull llama3 (etc)
-6. ollama pull mxbai-embed-large
-7. run upload.py (pdf, .txt, JSON)
-8. run localrag.py (with query re-write)
-9. run localrag_no_rewrite.py (no query re-write)
+## Project Overview
 
-### Email RAG Setup
-1. git clone https://github.com/AllAboutAI-YT/easy-local-rag.git
-2. cd dir
-3. pip install -r requirements.txt
-4. Install Ollama (https://ollama.com/download)
-5. ollama pull llama3 (etc)
-6. ollama pull mxbai-embed-large
-7. set YOUR email logins in .env (for gmail create app password (video))
-9. python collect_emails.py to download your emails
-10. python emailrag2.py to talk to your emails
+This repository is created to guide users on setting up and running a **Local Retrieval-Augmented Generation (RAG)** system entirely on a laptop. By utilizing the **Ollama** platform, which operates large language models locally, you can execute advanced natural language queries on your local data files without needing an internet connection. The system is lightweight and efficient enough to function on a standard laptop, while still being capable of handling complex queries and information retrieval tasks.
 
-### Latest Updates
-- Added Email RAG Support (v1.3)
-- Upload.py (v1.2)
-   - replaced /n/n with /n 
-- New embeddings model mxbai-embed-large from ollama (1.2)
-- Rewrite query function to improve retrival on vauge questions (1.2)
-- Pick your model from the CLI (1.1)
-  - python localrag.py --model mistral (llama3 is default) 
-- Talk in a true loop with conversation history (1.1)
+The primary aim of this project is to help users comprehend how **RAG** systems work. These systems leverage the strengths of **retrieval** (searching for relevant data) and **generation** (producing natural language responses) to create meaningful responses based on input queries. Such a system is ideal for use cases where privacy is crucial, as all data is processed locally on your machine.
 
-### What is RAG?
-RAG is a way to enhance the capabilities of LLMs by combining their powerful language understanding with targeted retrieval of relevant information from external sources often with using embeddings in vector databases, leading to more accurate, trustworthy, and versatile AI-powered applications
+## Key Concepts
 
-### What is Ollama?
-Ollama is an open-source platform that simplifies the process of running powerful LLMs locally on your own machine, giving users more control and flexibility in their AI projects. https://www.ollama.com
+### 1. Retrieval-Augmented Generation (RAG)
+**RAG** enhances large language models by retrieving relevant information from external data sources, such as documents, databases, or a vector database. The system represents local documents as embeddings (vectors), which allows the model to find information based on the input query.
+
+RAG is particularly effective when:
+- The language model lacks sufficient context or knowledge about a particular subject.
+- The data being queried is large, but only certain relevant sections are needed.
+- The queries should be answered using specific or recent data from local files.
+
+### 2. Vector Database
+A **vector database** is a specialized database designed to store and retrieve high-dimensional vectors, also known as embeddings. In this RAG setup, documents are converted into embeddings (vector representations) and stored in the vector database. When a query is made, it is also converted into a vector, and the vector database quickly retrieves the closest matching document embeddings based on semantic similarity.
+
+Vector databases are essential for scaling retrieval tasks, as they allow efficient search across large datasets by finding the most relevant vectors in a multi-dimensional space. Here, Ollama leverages **embeddings** to represent document meaning and stores them in an internal vector database for efficient retrieval.
+
+### 3. Embeddings
+Embeddings are vector representations of text that capture the semantic meaning of words or documents. The system uses Ollama's `mxbai-embed-large` model to create high-quality embeddings for the local documents. These embeddings are stored in a vector database, enabling fast and accurate retrieval based on user queries.
+
+Embeddings serve as the backbone of the RAG system. By transforming text into a numerical format, the system can quickly compare and retrieve the most relevant documents or portions of data.
+
+### 4. Local LLMs with Ollama
+**Ollama** is an open-source platform that allows the running of large language models (LLMs) directly on your machine, without needing cloud-based services. This local execution ensures data privacy and minimizes latency while still maintaining the powerful capabilities of models like **Llama3**.
+
+## Setup
+
+The following steps will help you set up the Local RAG system on your laptop. This setup is designed to be lightweight and straightforward, making it ideal for educational purposes or prototyping.
+
+### Step 1: Clone the Repository
+First, clone this repository to your local machine:
+
+```bash
+git clone https://github.com/memari-majid/easy-local-rag.git
+cd easy-local-rag
+```
+### Step 2: Install Python Dependencies
+Install the required Python packages by running the following command:
+
+```bash
+pip install -r requirements.txt
+```
+These dependencies include tools for managing language models, handling documents, and generating embeddings.
+
+### Step 3: Install Ollama
+Ollama is the core platform for running the local language models. Download and install it from the official website:
+[Download Ollama](https://ollama.com/)
+Once installed, Ollama will allow access to a variety of optimized language models for local use.
+
+### Step 4: Pull the Required Models
+You will need to download the specific models that power the RAG system. Use the following commands to pull the necessary models:
+
+Llama3 for general-purpose language generation:
+
+```bash
+ollama pull llama3
+```
+
+mxbai-embed-large for generating high-quality embeddings from documents:
+
+```bash
+ollama pull mxbai-embed-large
+```
+
+These models will be stored locally, allowing the entire system to run offline.
+
+### Step 5: Upload Your Documents
+The system supports various document formats, including .pdf, .txt, and .json. To upload your local documents, run the following script:
+
+```bash
+python upload.py
+```
+This script processes your documents and converts them into embeddings, storing them locally for future queries. The embeddings are added to the vector database, enabling efficient retrieval when queried.
+
+### Step 6: Query Your Documents
+Once your documents are uploaded and the embeddings are generated, you can start querying your local data using the RAG system.
+
+To run the system with query rewriting (useful for vague or unclear queries), use:
+
+```bash
+python localrag.py
+```
+
+For direct control over the results without query rewriting, use:
+
+```bash
+python localrag_no_rewrite.py
+```
+
+Both options allow you to ask natural language questions, and the system will retrieve and generate responses based on the relevant sections of your local documents.
