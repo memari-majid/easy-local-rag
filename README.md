@@ -205,7 +205,7 @@ When selecting a llama model, it is important to consider the available memory a
 Use the following commands to pull the necessary models:
 
 ```bash
-ollama pull llama3:7b
+ollama pull llama3.1
 ```
 
 #### Generating High-Quality Embeddings from Documents
