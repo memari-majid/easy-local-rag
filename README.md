@@ -264,6 +264,56 @@ This script provides a simple, yet powerful tool for querying local documents an
 
 To test the **local Retrieval-Augmented Generation (RAG)** system using the provided `sample.json` file of patient records, follow the steps below:
 
+### Description of the Sample `sample.json` File
+
+The `sample.json` file contains patient records in a structured format, with key information for each patient, such as personal details, medical history, and recent visits. The structure consists of an array of patients, where each patient has fields like:
+
+- **patient_id**: A unique identifier for each patient.
+- **name**: The patient's full name.
+- **age**: The patient's age.
+- **gender**: The patient's gender.
+- **medical_history**: A list of medical conditions the patient has been diagnosed with, along with the diagnosis date and treatment plan.
+- **recent_visits**: A record of recent medical visits, including the date, reason for the visit, and doctor's notes.
+
+#### Sample Data Structure:
+```json
+{
+  "patients": [
+    {
+      "patient_id": "001",
+      "name": "John Doe",
+      "age": 45,
+      "gender": "Male",
+      "medical_history": [
+        {
+          "condition": "Hypertension",
+          "diagnosis_date": "2020-05-10",
+          "treatment": "Medication: Lisinopril 10mg daily"
+        },
+        {
+          "condition": "Type 2 Diabetes",
+          "diagnosis_date": "2018-11-15",
+          "treatment": "Medication: Metformin 500mg twice daily"
+        }
+      ],
+      "recent_visits": [
+        {
+          "date": "2023-08-12",
+          "reason": "Routine check-up",
+          "notes": "Blood pressure elevated, medication dosage adjusted"
+        },
+        {
+          "date": "2023-05-19",
+          "reason": "Follow-up on diabetes",
+          "notes": "HbA1c levels improving, continue current treatment"
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
 #### 1. Load the Sample Data
 
 Run the Python script `upload.py`, which will open a graphical user interface (GUI). Through this interface, you can select `Upload JSON File` and upload the `sample.json` file. 
