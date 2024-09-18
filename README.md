@@ -56,6 +56,7 @@ These dependencies include tools for managing language models, handling document
 
 ### Step 3: Install Ollama
 Ollama is the core platform for running the local language models. Download and install it from the official website:
+
 [Download Ollama](https://ollama.com/)
 
 Once installed, Ollama will allow access to a variety of optimized language models for local use.
