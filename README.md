@@ -66,13 +66,13 @@ You will need to download the specific models that power the RAG system.
 #### llama
 llama models, especially llama 3, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. llama models are known for being **open-weight** models, **optimized** for performance across various tasks, including text generation, summarization, and question-answering. llama 3, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy in handling language-related tasks compared to its predecessors.
 
-- **llama 3 - 7B**: A smaller, more efficient model with 7 billion parameters. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
+- **llama 3 - 7B**: A **smaller**, more **efficient** model with 7 billion parameters. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
   
-- **llama 3 - 13B**: A mid-size model with 13 billion parameters. Offers a balance between performance and efficiency, suitable for more complex tasks without the need for high-end hardware.
+- **llama 3 - 13B**: A **mid-size** model with 13 billion parameters. Offers a **balance** between performance and efficiency, suitable for more complex tasks without the need for high-end hardware.
   
-- **llama 3 - 34B**: A larger model with 34 billion parameters. Provides higher accuracy and performance on advanced tasks but requires more computational resources.
+- **llama 3 - 34B**: A **larger** model with 34 billion parameters. Provides higher **accuracy** and performance on advanced tasks but requires more computational resources.
   
-- **llama 3 - 70B**: The largest model with 70 billion parameters. Delivers the highest accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware resources.
+- **llama 3 - 70B**: The **largest** model with 70 billion parameters. Delivers the **highest** accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware **resources**.
 
 Use the following commands to pull the necessary models:
 
