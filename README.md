@@ -260,7 +260,7 @@ Ensure that your vault.txt is properly formatted, with each document or chunk of
 
 This script provides a simple, yet powerful tool for querying local documents and generating responses using RAG techniques without modifying the user's original input.
 
-## Test
+# Step 7: Test
 
 To test the **local Retrieval-Augmented Generation (RAG)** system using the provided `sample.json` file of patient records, follow the steps below:
 
