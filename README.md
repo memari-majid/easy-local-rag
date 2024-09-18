@@ -69,11 +69,11 @@ Once installed, Ollama will allow access to a variety of optimized language mode
 
 ### Step 4: Pull the Required Models
 You will need to download the specific models that power the RAG system. 
-#### llama Models and Memory Requirements
+#### Models and Memory Requirements
 
 llama models, especially **llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
 
-| **Model**                | **Parameters** | **Size (GPU Memory)** | **Ollama Command**             |
+| **Model**                | **Parameters** | **Memory Size** | **Ollama Command**             |
 |--------------------------|----------------|-----------------------|--------------------------------|
 | **Moondream 2**           | 1.4B           | 829 MB                | `ollama run moondream`         |
 | **Gemma 2**               | 2B             | 1.6 GB                | `ollama run gemma2:2b`         |
