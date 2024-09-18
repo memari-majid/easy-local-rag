@@ -38,6 +38,11 @@ First, clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/memari-majid/easy-local-rag.git
+```
+
+Go to the repository downloaded in your local machine
+
+```bash
 cd easy-local-rag
 ```
 ### Step 2: Install Python Dependencies
