@@ -71,26 +71,28 @@ Once installed, Ollama will allow access to a variety of optimized language mode
 You will need to download the specific models that power the RAG system. 
 #### Models and Memory Requirements
 
-llama models, especially **llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
+The following table outlines various **Large Language Models (LLMs)** with their corresponding number of parameters and memory requirements. **llama** models, especially the Llama 3 series developed by Meta, are highly advanced models **optimized** for **Natural Language Processing (NLP)** tasks. Llama 3 provides improvements in performance, speed, and **efficiency** compared to earlier versions. Different versions of the llama model (with varying numbers of parameters) require varying amounts of memory (RAM) to run effectively.
+
+For example, the **llama 3.1, 8B parameter** model requires **4.7 GB of memory**, which would be a suitable candidate to run **locally** on your **laptop** if you have sufficient RAM. This model offers a balance between **performance** and **memory** footprint, making it practical for local use on systems with moderate hardware capabilities.
 
 | **Model**                | **Parameters** | **Memory Size** | **Ollama Command**             |
-|--------------------------|----------------|-----------------------|--------------------------------|
-| **Moondream 2**           | 1.4B           | 829 MB                | `ollama run moondream`         |
-| **Gemma 2**               | 2B             | 1.6 GB                | `ollama run gemma2:2b`         |
-| **Phi 3 Mini**            | 3.8B           | 2.3 GB                | `ollama run phi3`              |
-| **Code Llama**            | 7B             | 3.8 GB                | `ollama run codellama`         |
-| **Llama 2 Uncensored**    | 7B             | 3.8 GB                | `ollama run llama2-uncensored` |
-| **Mistral**               | 7B             | 4.1 GB                | `ollama run mistral`           |
-| **Neural Chat**           | 7B             | 4.1 GB                | `ollama run neural-chat`       |
-| **Starling**              | 7B             | 4.1 GB                | `ollama run starling-lm`       |
-| **LLaVA**                 | 7B             | 4.5 GB                | `ollama run llava`             |
-| **Llama 3.1**             | 8B             | 4.7 GB                | `ollama run llama3.1`          |
-| **Solar**                 | 10.7B          | 6.1 GB                | `ollama run solar`             |
-| **Gemma 2**               | 9B             | 5.5 GB                | `ollama run gemma2`            |
-| **Phi 3 Medium**          | 14B            | 7.9 GB                | `ollama run phi3:medium`       |
-| **Gemma 2**               | 27B            | 16 GB                 | `ollama run gemma2:27b`        |
-| **Llama 3.1**             | 70B            | 40 GB                 | `ollama run llama3.1:70b`      |
-| **Llama 3.1**             | 405B           | 231 GB                | `ollama run llama3.1:405b`     |
+|--------------------------|----------------|-----------------|--------------------------------|
+| Moondream 2              | 1.4B           | 829 MB          | `ollama run moondream`         |
+| Gemma 2                  | 2B             | 1.6 GB          | `ollama run gemma2:2b`         |
+| Phi 3 Mini               | 3.8B           | 2.3 GB          | `ollama run phi3`              |
+| Code Llama               | 7B             | 3.8 GB          | `ollama run codellama`         |
+| Llama 2 Uncensored       | 7B             | 3.8 GB          | `ollama run llama2-uncensored` |
+| Mistral                  | 7B             | 4.1 GB          | `ollama run mistral`           |
+| Neural Chat              | 7B             | 4.1 GB          | `ollama run neural-chat`       |
+| Starling                 | 7B             | 4.1 GB          | `ollama run starling-lm`       |
+| LLaVA                    | 7B             | 4.5 GB          | `ollama run llava`             |
+| **Llama 3.1**            | **8B**         | **4.7 GB**      | **`ollama run llama3.1`**      |
+| Solar                    | 10.7B          | 6.1 GB          | `ollama run solar`             |
+| Gemma 2                  | 9B             | 5.5 GB          | `ollama run gemma2`            |
+| Phi 3 Medium             | 14B            | 7.9 GB          | `ollama run phi3:medium`       |
+| Gemma 2                  | 27B            | 16 GB           | `ollama run gemma2:27b`        |
+| Llama 3.1                | 70B            | 40 GB           | `ollama run llama3.1:70b`      |
+| Llama 3.1                | 405B           | 231 GB          | `ollama run llama3.1:405b`     |
 
 
 When selecting a llama model, it is important to consider the available memory and hardware capabilities, as larger models require more memory but deliver better performance for complex tasks.
