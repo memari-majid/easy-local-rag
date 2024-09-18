@@ -158,6 +158,26 @@ You will need to download the specific models that power the RAG system.
 
 The following table outlines various **Large Language Models (LLMs)** with their corresponding number of parameters and memory requirements. **llama** models, especially the Llama 3 series developed by Meta, are highly advanced models **optimized** for **Natural Language Processing (NLP)** tasks. Llama 3 provides improvements in performance, speed, and **efficiency** compared to earlier versions. Different versions of the llama model (with varying numbers of parameters) require varying amounts of memory (RAM) to run effectively.
 
+#### LLM leaderboard
+
+**Quality**: Evaluation of the model’s overall language understanding and generation capabilities.
+
+| Model              | Creator      | Context Window | Quality (Index) |
+|--------------------|--------------|----------------|-----------------|
+| o1-preview          | OpenAI       | 128k           | 85              |
+| o1-mini             | OpenAI       | 128k           | 82              |
+| GPT-4o              | OpenAI       | 128k           | 77              |
+| GPT-4o mini         | OpenAI       | 128k           | 71              |
+| Llama 3.1 405B      | Meta         | 128k           | 72              |
+| Llama 3.1 70B       | Meta         | 128k           | 65              |
+| Llama 3.1 8B        | Meta         | 128k           | 53              |
+| Gemini 1.5 Pro      | Google       | 2m             | 72              |
+| Gemini 1.5 Flash    | Google       | 1m             | 60              |
+| Gemma 2 27B         | Google       | 8k             | 49              |
+| Gemma 2 9B          | Google       | 8k             | 47              |
+| Claude 3.5 Sonnet   | Anthropic    | 200k           | 77              |
+
+
 For example, the **llama 3.1, 8B parameter** model requires **4.7 GB of memory**, which would be a suitable candidate to run **locally** on your **laptop** if you have sufficient RAM. This model offers a balance between **performance** and **memory** footprint, making it practical for local use on systems with moderate hardware capabilities.
 
 | **Model**                | **Parameters** | **Memory Size** | **Ollama Command**             |
