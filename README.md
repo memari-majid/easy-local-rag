@@ -107,7 +107,7 @@ These dependencies include tools for managing language models, handling document
 ### Step 4: Install Ollama
 
 
-Ollama is the core platform for running the local language models. Download and install it from the official website: [Ollama](https://ollama.com/)
+Ollama is the core platform for running the local language models.
 
 #### macOS
 
