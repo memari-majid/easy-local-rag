@@ -488,6 +488,7 @@ The system also suggested potential additional factors outside the given context
    - Stress Management: The system recommended incorporating stress-reduction techniques like meditation or breathing exercises to better manage his anxiety and its effects on blood pressure.
 
 **Why This Test Demonstrates the Power of RAG:**
+
 This test showcases how RAG goes beyond traditional SQL queries by:
 
    - Understanding the relationships between seemingly separate conditions (anxiety and hypertension).
