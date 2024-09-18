@@ -13,6 +13,12 @@ Integrating a **RAG system** into your database infrastructure can dramatically 
 
 This project not only provides a powerful tool for managing and interpreting your own data but also serves as a learning resource for building customized RAG systems. Users can explore how the system semantically searches their databases and generates context-aware responses, enhancing the capability of traditional database management.
 
+
+
+<div style="text-align: center;">
+    <img src="pipeline.png" alt="RAG Pipeline" title="RAG Pipelin" width="1000">
+</div>
+
 ## Key Concepts
 
 ### 1. Retrieval-Augmented Generation (RAG)
