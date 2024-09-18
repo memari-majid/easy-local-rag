@@ -73,13 +73,25 @@ You will need to download the specific models that power the RAG system.
 
 llama models, especially **llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters. **Ollama** can help alleviate some of the hardware requirements associated with running large models like llama 3 by providing **optimized** infrastructure and tools to manage models more efficiently.
 
-- **llama 3 - 7B**: The **smallest** model with 7 billion parameters. It is **efficient** and requires around **16 GB** of GPU memory to run smoothly. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
+| **Model**                | **Parameters** | **Size (GPU Memory)** | **Ollama Command**             |
+|--------------------------|----------------|-----------------------|--------------------------------|
+| **Llama 3.1**             | 8B             | 4.7 GB                | `ollama run llama3.1`          |
+| **Llama 3.1**             | 70B            | 40 GB                 | `ollama run llama3.1:70b`      |
+| **Llama 3.1**             | 405B           | 231 GB                | `ollama run llama3.1:405b`     |
+| **Phi 3 Mini**            | 3.8B           | 2.3 GB                | `ollama run phi3`              |
+| **Phi 3 Medium**          | 14B            | 7.9 GB                | `ollama run phi3:medium`       |
+| **Gemma 2**               | 2B             | 1.6 GB                | `ollama run gemma2:2b`         |
+| **Gemma 2**               | 9B             | 5.5 GB                | `ollama run gemma2`            |
+| **Gemma 2**               | 27B            | 16 GB                 | `ollama run gemma2:27b`        |
+| **Mistral**               | 7B             | 4.1 GB                | `ollama run mistral`           |
+| **Moondream 2**           | 1.4B           | 829 MB                | `ollama run moondream`         |
+| **Neural Chat**           | 7B             | 4.1 GB                | `ollama run neural-chat`       |
+| **Starling**              | 7B             | 4.1 GB                | `ollama run starling-lm`       |
+| **Code Llama**            | 7B             | 3.8 GB                | `ollama run codellama`         |
+| **Llama 2 Uncensored**    | 7B             | 3.8 GB                | `ollama run llama2-uncensored` |
+| **LLaVA**                 | 7B             | 4.5 GB                | `ollama run llava`             |
+| **Solar**                 | 10.7B          | 6.1 GB                | `ollama run solar`             |
 
-- **llama 3 - 13B**: A **mid-size** model with 13 billion parameters. It strikes a **balance** between performance and efficiency and requires approximately **24 GB** of GPU memory, making it suitable for more complex tasks without the need for high-end hardware.
-
-- **llama 3 - 34B**: A **larger** model with 34 billion parameters. It delivers higher **accuracy** and performance but requires more computational resources, typically needing around **48 GB** of GPU memory to operate effectively.
-
-- **llama 3 - 70B**: The **largest** model with 70 billion parameters. It provides the **highest** accuracy and performance but requires significant hardware **resources**, including **80 GB** or more of GPU memory, making it ideal for the most demanding language generation tasks.
 
 When selecting a llama model, it is important to consider the available memory and hardware capabilities, as larger models require more memory but deliver better performance for complex tasks.
 
