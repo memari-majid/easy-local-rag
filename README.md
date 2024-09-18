@@ -493,5 +493,5 @@ This test showcases how RAG goes beyond traditional SQL queries by:
    - Understanding the relationships between seemingly separate conditions (anxiety and hypertension).
    - Pulling detailed contextual information from multiple areas of the patient’s record (treatments, recent visits, and lifestyle factors).
    - Generating actionable insights about how to manage the patient’s overall health, which would be difficult to achieve with a simple keyword search or SQL query.
-   - 
+
 By using the RAG system, healthcare providers can gain a more comprehensive understanding of a patient’s health conditions, treatments, and how different factors are interconnected, allowing for more personalized and effective care.
