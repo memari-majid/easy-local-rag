@@ -297,12 +297,13 @@ For a query like "What is the medical history of John Doe?", the system should r
 
 The output should look something like this:
 
-
+```
 John Doe's medical history includes:
 - Hypertension: diagnosed on 2020-05-10, treated with Lisinopril 10mg daily.
 - Type 2 Diabetes: diagnosed on 2018-11-15, treated with Metformin 500mg twice daily.
 1. Adjust the RAG System for Other Formats
 If the system is configured for text files, ensure that it properly parses and handles JSON input. The structure of the sample.json file includes multiple patients with details such as their medical history, recent visits, and treatments, which the RAG system should be able to search and retrieve based on your queries.
+```
 
 By following these steps, you'll be able to test the RAG system with the sample.json file and experience how it semantically searches through patient data to generate meaningful responses.
 
