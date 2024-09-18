@@ -260,202 +260,7 @@ Ensure that your vault.txt is properly formatted, with each document or chunk of
 
 This script provides a simple, yet powerful tool for querying local documents and generating responses using RAG techniques without modifying the user's original input.
 
-# Step 7: Simple Test
-
-To test the **local Retrieval-Augmented Generation (RAG)** system using the provided `sample.json` file of patient records, follow the steps below:
-
-### Description of the Sample `sample.json` File
-
-The `sample.json` file contains patient records in a structured format, with key information for each patient, such as personal details, medical history, and recent visits. The structure consists of an array of patients, where each patient has fields like:
-
-- **patient_id**: A unique identifier for each patient.
-- **name**: The patient's full name.
-- **age**: The patient's age.
-- **gender**: The patient's gender.
-- **medical_history**: A list of medical conditions the patient has been diagnosed with, along with the diagnosis date and treatment plan.
-- **recent_visits**: A record of recent medical visits, including the date, reason for the visit, and doctor's notes.
-
-#### Sample Data Structure:
-```json
-{
-  "patients": [
-    {
-      "patient_id": "001",
-      "name": "John Doe",
-      "age": 45,
-      "gender": "Male",
-      "medical_history": [
-        {
-          "condition": "Hypertension",
-          "diagnosis_date": "2020-05-10",
-          "treatment": "Medication: Lisinopril 10mg daily"
-        },
-        {
-          "condition": "Type 2 Diabetes",
-          "diagnosis_date": "2018-11-15",
-          "treatment": "Medication: Metformin 500mg twice daily"
-        }
-      ],
-      "recent_visits": [
-        {
-          "date": "2023-08-12",
-          "reason": "Routine check-up",
-          "notes": "Blood pressure elevated, medication dosage adjusted"
-        },
-        {
-          "date": "2023-05-19",
-          "reason": "Follow-up on diabetes",
-          "notes": "HbA1c levels improving, continue current treatment"
-        }
-      ]
-    },
-    ...
-  ]
-}
-```
-
-#### 1. Load the Sample Data
-
-Run the Python script `upload.py`, which will open a graphical user interface (GUI). Through this interface, you can select `Upload JSON File` and upload the `sample.json` file. 
-
-If your system is set up to read from text files, you may need to modify it to correctly parse JSON format.
-
-Example command to run the script and upload the `sample.json` file:
-
-```bash
-python upload.py
-```
-#### 2. Run the RAG System
-
-Execute the RAG system as usual. Depending on your setup, the system will read the sample.json file, generate embeddings for the records, and allow you to run semantic queries against the data.
-
-```bash
-python localrag.py
-```
-
-#### 3. Query
-
-Once the system is running, you can input queries related to the patient data in the sample.json file. Here are some example queries:
-
-"What is the medical history of John Doe?"
-"What was the outcome of Emily Davis' visit for fatigue?"
-"Summarize the recent visits of Jane Smith."
-The RAG system will search through the sample.json file, retrieve relevant records, and generate a response based on the semantic meaning of the query.
-
-#### 4. Expected Output
-For a query like "What is the medical history of John Doe?", the system should retrieve and summarize the relevant medical history from the sample.json file, including his conditions (hypertension, type 2 diabetes) and treatments.
-
-The output should look something like this:
-
-```
-John Doe's medical history includes:
-- Hypertension: diagnosed on 2020-05-10, treated with Lisinopril 10mg daily.
-- Type 2 Diabetes: diagnosed on 2018-11-15, treated with Metformin 500mg twice daily.
-```
-
-# Step 8: Complex Test
-
-Another Complex `sample_complex.json` File for Testing
-Here’s another example of a more complex JSON file for patient records. This data includes more nuanced medical information, such as lifestyle factors, medications with complex names, and detailed notes, making it challenging to extract relevant information using traditional SQL queries. With RAG, you can ask queries in natural language and retrieve semantically relevant information that would otherwise be difficult to obtain through simple keyword matching.
-
-Complex Sample `sample_complex.json` File:
-```json
-{
-  "patients": [
-    {
-      "patient_id": "004",
-      "name": "Alice Johnson",
-      "age": 52,
-      "gender": "Female",
-      "medical_history": [
-        {
-          "condition": "Hyperlipidemia",
-          "diagnosis_date": "2019-10-01",
-          "treatment": "Medication: Atorvastatin 40mg daily"
-        },
-        {
-          "condition": "Sleep Apnea",
-          "diagnosis_date": "2022-06-15",
-          "treatment": "CPAP machine at night"
-        }
-      ],
-      "lifestyle": {
-        "smoking_status": "Former smoker, quit in 2018",
-        "alcohol_intake": "Occasional, 1-2 drinks per week",
-        "exercise": "Moderate, 3-4 times per week"
-      },
-      "recent_visits": [
-        {
-          "date": "2023-04-10",
-          "reason": "High cholesterol follow-up",
-          "notes": "Cholesterol levels still elevated, diet adjustments recommended"
-        },
-        {
-          "date": "2023-07-22",
-          "reason": "Routine check-up",
-          "notes": "Patient reports mild fatigue, possibly related to sleep apnea."
-        }
-      ]
-    },
-    {
-      "patient_id": "005",
-      "name": "Michael Lee",
-      "age": 40,
-      "gender": "Male",
-      "medical_history": [
-        {
-          "condition": "Hypertension",
-          "diagnosis_date": "2020-08-11",
-          "treatment": "Medication: Losartan 50mg daily"
-        },
-        {
-          "condition": "Anxiety",
-          "diagnosis_date": "2016-02-25",
-          "treatment": "Cognitive Behavioral Therapy, Medication: Escitalopram 10mg daily"
-        }
-      ],
-      "lifestyle": {
-        "smoking_status": "Non-smoker",
-        "alcohol_intake": "None",
-        "exercise": "Light, walks occasionally"
-      },
-      "recent_visits": [
-        {
-          "date": "2023-05-05",
-          "reason": "Hypertension follow-up",
-          "notes": "Blood pressure stable, patient reports increased anxiety."
-        },
-        {
-          "date": "2023-09-15",
-          "reason": "Mental health check-up",
-          "notes": "Anxiety symptoms improving, CBT sessions continuing."
-        }
-      ]
-    }
-  ]
-}
-```
-
-#### Query Example for RAG
-
-**Natural Language Query:**
-```
-"What treatments are being used for Michael Lee's anxiety, and how is his condition related to his hypertension?"
-```
-
-**Expected RAG Response:**
-
-The RAG system would retrieve relevant context by searching the JSON file and respond with:
-
-RAG Response:
-
-```
-"Michael Lee is being treated for anxiety with Cognitive Behavioral Therapy (CBT) and Escitalopram 10mg daily. His anxiety was first diagnosed on 2016-02-25. During a recent visit on 2023-05-05 for hypertension follow-up, the patient reported increased anxiety, indicating a potential link between his blood pressure and mental health."
-```
-
-This kind of semantically enriched retrieval—linking anxiety and hypertension across Michael's medical records—would be difficult to extract with a basic SQL query. RAG makes this process easier by using the context provided in medical notes and lifestyle data. It understands the relationship between conditions and treatments even when they are documented separately.
-
-#### Test Description for Querying Complex Patient Records with RAG
+# Step 7: Test Description for Querying Complex Patient Records with RAG
 
 This test demonstrates how the local Retrieval-Augmented Generation (RAG) system retrieves nuanced information from a complex JSON file of patient records. In this case, the query involves retrieving the treatments for Michael Lee's anxiety and understanding how his anxiety might be related to his hypertension.
 
@@ -496,3 +301,32 @@ This test showcases how RAG goes beyond traditional SQL queries by:
    - Generating actionable insights about how to manage the patient’s overall health, which would be difficult to achieve with a simple keyword search or SQL query.
 
 By using the RAG system, healthcare providers can gain a more comprehensive understanding of a patient’s health conditions, treatments, and how different factors are interconnected, allowing for more personalized and effective care.
+
+### Test Output: Querying Patient Distress Using RAG with Integrated Systems
+
+**Query:**
+```text
+Which patients have shown signs of distress in recent facial recognition scans or feedback, and do they require urgent intervention?
+```
+### Response:
+
+Based on the provided context and patient data, I've identified two patients who have shown signs of distress:
+
+#### **Patient 006 (Sarah Miller)**:
+- Recent visit on **2023-09-10** for "Increase in depressive symptoms," with **Sertraline dosage** increased to 100mg daily.
+- A **facial recognition scan** on **2023-09-10 at 15:35:00** detected sadness, and her **emergency contact** was alerted.
+
+#### **Patient 007 (David Brown)**:
+- Recent visit on **2023-08-22** related to a manic episode, with **Lithium dosage** adjusted to 1200mg daily.
+- No facial recognition alert, but a **customer review analysis** flagged high anxiety in feedback on **2023-09-08**, recommending escalation.
+
+### Additional Insights and Recommendations:
+- **Patient 006 (Sarah Miller)** may need urgent intervention due to her worsening depressive symptoms and the triggered facial recognition alert. Addressing her lifestyle factors, such as improving sleep quality and increasing physical activity, could aid in managing her condition.
+  
+- **Patient 007 (David Brown)** should also be closely monitored, as his recent feedback indicated high levels of anxiety. Although no facial recognition alert was triggered, further support may be necessary.
+
+### Urgent Intervention Recommendations:
+1. **Sarah Miller**: Address the increasing depressive symptoms and facial recognition-triggered alert.
+2. **David Brown**: Provide additional support based on his flagged customer review analysis and anxiety escalation.
+
+Please consult with the patient's care team and relevant healthcare professionals to determine the best course of action.
