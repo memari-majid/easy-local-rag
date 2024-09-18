@@ -30,7 +30,7 @@ After you upload documents (PDF, text, or JSON), the system converts these docum
 
 When a user asks a question, the system converts the query into an embedding and searches for the most similar document embeddings using FAISS. This allows the system to retrieve relevant information, even if the words in the query do not match the exact words in the documents, as the search is based on meaning rather than keywords.
 
-<img src="word_embeddings.png" alt="Word Embeddings Diagram" title="Word Embeddings" width="500" width="600">
+<img src="word_embeddings.png" alt="Word Embeddings Diagram" title="Word Embeddings" width="500" width="800">
 
 #### Persistent Storage of Embeddings and FAISS Index
 To improve efficiency, the embeddings generated from the uploaded documents and the FAISS index are **saved to disk**. This means that if you re-run the program later, the embeddings and index will be **loaded** instead of re-generated, saving time.
