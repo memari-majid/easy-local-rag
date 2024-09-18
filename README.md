@@ -63,16 +63,19 @@ Once installed, Ollama will allow access to a variety of optimized language mode
 
 ### Step 4: Pull the Required Models
 You will need to download the specific models that power the RAG system. 
-#### llama
-llama models, especially llama 3, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. llama models are known for being **open-weight** models, **optimized** for performance across various tasks, including text generation, summarization, and question-answering. llama 3, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy in handling language-related tasks compared to its predecessors.
+#### Llama Models and Memory Requirements
 
-- **llama 3 - 7B**: A **smaller**, more **efficient** model with 7 billion parameters. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
-  
-- **llama 3 - 13B**: A **mid-size** model with 13 billion parameters. Offers a **balance** between performance and efficiency, suitable for more complex tasks without the need for high-end hardware.
-  
-- **llama 3 - 34B**: A **larger** model with 34 billion parameters. Provides higher **accuracy** and performance on advanced tasks but requires more computational resources.
-  
-- **llama 3 - 70B**: The **largest** model with 70 billion parameters. Delivers the **highest** accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware **resources**.
+Llama models, especially **Llama 3**, are advanced large language models developed by **Meta** for **Natural Language Processing (NLP)** tasks. These models are **open-weight** and **optimized** for various tasks, such as text generation, summarization, and question-answering. **Llama 3**, the latest iteration, offers enhanced capabilities in terms of speed, **efficiency**, and accuracy compared to its predecessors. However, each model size requires different amounts of memory (RAM), depending on the number of parameters.
+
+- **Llama 3 - 7B**: A **smaller** model with 7 billion parameters. It is **efficient** and requires around **16 GB** of GPU memory to run smoothly. Suitable for tasks requiring less computational power while still maintaining strong language understanding capabilities.
+
+- **Llama 3 - 13B**: A **mid-size** model with 13 billion parameters. It strikes a **balance** between performance and efficiency and requires approximately **24 GB** of GPU memory, making it suitable for more complex tasks without the need for high-end hardware.
+
+- **Llama 3 - 34B**: A **larger** model with 34 billion parameters. It delivers higher **accuracy** and performance but requires more computational resources, typically needing around **48 GB** of GPU memory to operate effectively.
+
+- **Llama 3 - 70B**: The **largest** model with 70 billion parameters. It provides the **highest** accuracy and performance but requires significant hardware **resources**, including **80 GB** or more of GPU memory, making it ideal for the most demanding language generation tasks.
+
+When selecting a Llama model, it is important to consider the available memory and hardware capabilities, as larger models require more memory but deliver better performance for complex tasks.
 
 Use the following commands to pull the necessary models:
 
