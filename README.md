@@ -98,8 +98,11 @@ ollama pull mxbai-embed-large
 
 These models will be stored locally, allowing the entire system to run offline.
 
+
 ### Step 5: Upload Your Documents
-The system supports various document formats, including .pdf, .txt, and .json. To upload your local documents, run the following script:
+
+The system supports various document formats, including **pdf**, **txt**, and **json**. This flexibility allows you to upload diverse types of files, whether you're working with textual data or **structured** **databases**. For example, you can upload a database in **JSON** format, which is commonly used to store and exchange data. JSON allows the system to handle structured documents, making it ideal for cases where the data needs to be parsed into key-value pairs or a hierarchical structure.
+
 
 ```bash
 python upload.py
