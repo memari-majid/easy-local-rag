@@ -477,8 +477,8 @@ The system pulls the relevant context from the JSON file, which includes:
 **RAG System's Response:**
 Based on the retrieved context, the RAG system generated the following detailed response:
 ```
-   - Anxiety Treatment: Michael Lee's anxiety is being treated with CBT and Escitalopram 10mg daily, a treatment regimen that began after his diagnosis in 2016.
-   - Relation to Hypertension: The system highlighted a recent visit on May 5th, 2023, where Michael reported increased anxiety during a hypertension follow-up, suggesting a link between his anxiety and blood pressure issues. It also noted improvement in anxiety symptoms on September 15th, 2023, following continued CBT sessions.
+Anxiety Treatment: Michael Lee's anxiety is being treated with CBT and Escitalopram 10mg daily, a treatment regimen that began after his diagnosis in 2016.
+Relation to Hypertension: The system highlighted a recent visit on May 5th, 2023, where Michael reported increased anxiety during a hypertension follow-up, suggesting a link between his anxiety and blood pressure issues. It also noted improvement in anxiety symptoms on September 15th, 2023, following continued CBT sessions.
 ```
 
 The system also suggested potential additional factors outside the given context that might impact both conditions:
