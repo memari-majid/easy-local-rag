@@ -28,7 +28,7 @@ Embeddings are vector representations of text that capture the semantic meaning 
 Embeddings serve as the backbone of the RAG system. By transforming text into a numerical format, the system can quickly compare and retrieve the most relevant documents or portions of data.
 
 ### 4. Local LLMs with Ollama
-**Ollama** is an open-source platform that allows the running of large language models (LLMs) directly on your machine, without needing cloud-based services. This local execution ensures data privacy and minimizes latency while still maintaining the powerful capabilities of models like **Llama3**.
+**Ollama** is an open-source platform that allows the running of large language models (LLMs) directly on your machine, without needing cloud-based services. This local execution ensures data privacy and minimizes latency while still maintaining the powerful capabilities of models like **llama3**.
 
 ## Setup
 
@@ -74,7 +74,13 @@ llama models, especially llama 3, are advanced large language models developed b
   
 - **llama 3 - 70B**: The largest model with 70 billion parameters. Delivers the highest accuracy and performance, ideal for the most demanding language generation tasks but requires significant hardware resources.
 
+#### Generating High-Quality Embeddings from Documents
 
+The `mxbai-embed-large` model is designed to generate high-quality embeddings from textual documents. Embeddings are vector representations of text that capture the **semantic** meaning of words or sentences. These embeddings are essential for tasks like similarity search, document clustering, and retrieval-augmented generation (RAG) systems.
+
+By leveraging a large embedding model like `mxbai-embed-large`, you can ensure that your documents are encoded into dense vectors that preserve their **semantic** richness and **contextual** information, which improves the performance of downstream tasks such as search, recommendation, or summarization.
+
+To pull the `mxbai-embed-large` model using **ollama**, use the following command:
 Use the following commands to pull the necessary models:
 
 llama3 for general-purpose language generation:
