@@ -260,7 +260,7 @@ Ensure that your vault.txt is properly formatted, with each document or chunk of
 
 This script provides a simple, yet powerful tool for querying local documents and generating responses using RAG techniques without modifying the user's original input.
 
-# Step 7: Test
+# Step 7: Simple Test
 
 To test the **local Retrieval-Augmented Generation (RAG)** system using the provided `sample.json` file of patient records, follow the steps below:
 
@@ -353,5 +353,145 @@ John Doe's medical history includes:
 - Type 2 Diabetes: diagnosed on 2018-11-15, treated with Metformin 500mg twice daily.
 ```
 
-By following these steps, you'll be able to test the RAG system with the sample.json file and experience how it semantically searches through patient data to generate meaningful responses.
+# Step 8: Complex Test
 
+Another Complex `sample_complex.json` File for Testing
+Here’s another example of a more complex JSON file for patient records. This data includes more nuanced medical information, such as lifestyle factors, medications with complex names, and detailed notes, making it challenging to extract relevant information using traditional SQL queries. With RAG, you can ask queries in natural language and retrieve semantically relevant information that would otherwise be difficult to obtain through simple keyword matching.
+
+Complex Sample `sample_complex.json` File:
+```json
+{
+  "patients": [
+    {
+      "patient_id": "004",
+      "name": "Alice Johnson",
+      "age": 52,
+      "gender": "Female",
+      "medical_history": [
+        {
+          "condition": "Hyperlipidemia",
+          "diagnosis_date": "2019-10-01",
+          "treatment": "Medication: Atorvastatin 40mg daily"
+        },
+        {
+          "condition": "Sleep Apnea",
+          "diagnosis_date": "2022-06-15",
+          "treatment": "CPAP machine at night"
+        }
+      ],
+      "lifestyle": {
+        "smoking_status": "Former smoker, quit in 2018",
+        "alcohol_intake": "Occasional, 1-2 drinks per week",
+        "exercise": "Moderate, 3-4 times per week"
+      },
+      "recent_visits": [
+        {
+          "date": "2023-04-10",
+          "reason": "High cholesterol follow-up",
+          "notes": "Cholesterol levels still elevated, diet adjustments recommended"
+        },
+        {
+          "date": "2023-07-22",
+          "reason": "Routine check-up",
+          "notes": "Patient reports mild fatigue, possibly related to sleep apnea."
+        }
+      ]
+    },
+    {
+      "patient_id": "005",
+      "name": "Michael Lee",
+      "age": 40,
+      "gender": "Male",
+      "medical_history": [
+        {
+          "condition": "Hypertension",
+          "diagnosis_date": "2020-08-11",
+          "treatment": "Medication: Losartan 50mg daily"
+        },
+        {
+          "condition": "Anxiety",
+          "diagnosis_date": "2016-02-25",
+          "treatment": "Cognitive Behavioral Therapy, Medication: Escitalopram 10mg daily"
+        }
+      ],
+      "lifestyle": {
+        "smoking_status": "Non-smoker",
+        "alcohol_intake": "None",
+        "exercise": "Light, walks occasionally"
+      },
+      "recent_visits": [
+        {
+          "date": "2023-05-05",
+          "reason": "Hypertension follow-up",
+          "notes": "Blood pressure stable, patient reports increased anxiety."
+        },
+        {
+          "date": "2023-09-15",
+          "reason": "Mental health check-up",
+          "notes": "Anxiety symptoms improving, CBT sessions continuing."
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Query Example for RAG
+
+**Natural Language Query:**
+```
+"What treatments are being used for Michael Lee's anxiety, and how is his condition related to his hypertension?"
+```
+
+**Expected RAG Response:**
+
+The RAG system would retrieve relevant context by searching the JSON file and respond with:
+
+RAG Response:
+
+```
+"Michael Lee is being treated for anxiety with Cognitive Behavioral Therapy (CBT) and Escitalopram 10mg daily. His anxiety was first diagnosed on 2016-02-25. During a recent visit on 2023-05-05 for hypertension follow-up, the patient reported increased anxiety, indicating a potential link between his blood pressure and mental health."
+```
+
+This kind of semantically enriched retrieval—linking anxiety and hypertension across Michael's medical records—would be difficult to extract with a basic SQL query. RAG makes this process easier by using the context provided in medical notes and lifestyle data. It understands the relationship between conditions and treatments even when they are documented separately.
+
+#### Test Description for Querying Complex Patient Records with RAG
+
+This test demonstrates how the local Retrieval-Augmented Generation (RAG) system retrieves nuanced information from a complex JSON file of patient records. In this case, the query involves retrieving the treatments for Michael Lee's anxiety and understanding how his anxiety might be related to his hypertension.
+
+**Query Example:**
+
+```
+What treatments are being used for Michael Lee's anxiety, and how is his condition related to his hypertension?
+```
+Context Retrieved from the `sample_complex.json` File:
+
+The system pulls the relevant context from the JSON file, which includes:
+
+   - Michael Lee's medical history, with conditions like Hypertension and Anxiety.
+   - Treatments:
+      - For hypertension, he is on Losartan 50mg daily.
+      - For anxiety, he undergoes Cognitive Behavioral Therapy (CBT) and takes Escitalopram 10mg daily.
+   - Recent visits that link his increased anxiety to a hypertension follow-up visit.
+
+**RAG System's Response:**
+Based on the retrieved context, the RAG system generated the following detailed response:
+```
+   - **Anxiety Treatment:** Michael Lee's anxiety is being treated with CBT and Escitalopram 10mg daily, a treatment regimen that began after his diagnosis in 2016.
+   - **Relation to Hypertension:** The system highlighted a recent visit on May 5th, 2023, where Michael reported increased anxiety during a hypertension follow-up, suggesting a link between his anxiety and blood pressure issues. It also noted improvement in anxiety symptoms on September 15th, 2023, following continued CBT sessions.
+```
+
+The system also suggested potential additional factors outside the given context that might impact both conditions:
+
+   - Exercise: Michael engages in light physical activity (occasional walks), but increasing exercise could help manage both conditions.
+   - Sleep: Since Michael has sleep apnea, improving sleep quality could positively affect both his anxiety and hypertension.
+   - Stress Management: The system recommended incorporating stress-reduction techniques like meditation or breathing exercises to better manage his anxiety and its effects on blood pressure.
+
+**Why This Test Demonstrates the Power of RAG:**
+This test showcases how RAG goes beyond traditional SQL queries by:
+
+   - Understanding the relationships between seemingly separate conditions (anxiety and hypertension).
+   - Pulling detailed contextual information from multiple areas of the patient’s record (treatments, recent visits, and lifestyle factors).
+   - Generating actionable insights about how to manage the patient’s overall health, which would be difficult to achieve with a simple keyword search or SQL query.
+   - 
+By using the RAG system, healthcare providers can gain a more comprehensive understanding of a patient’s health conditions, treatments, and how different factors are interconnected, allowing for more personalized and effective care.
